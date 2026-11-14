@@ -1,32 +1,58 @@
-# React + TypeScript + Vite
+# AFTERLIFE — The Forgotten Space Museum
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> **Thirteen missions. Six destinations. Decades of hardware still out there.**
 
-Currently, two official plugins are available:
+**[Open the live website](https://notsoarshh.github.io/AfterLife-/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+AFTERLIFE is an immersive, interactive museum for the human-made objects that remain on the Moon, Mars, and beyond. It turns forgotten spacecraft, abandoned landers, rovers, instruments, and orbital relics into a visual journey through the history of exploration.
 
-## React Compiler
+Built for the NASA Space Apps Challenge theme **“Abandoned but not Forgotten”**, the experience combines archival imagery, mission timelines, destination guides, hardware profiles, and carefully sourced historical context.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## What you can explore
 
-## Expanding the Oxlint configuration
+- **Mission archive** — Browse the objects and missions left across the solar system.
+- **Interactive timeline** — Follow decades of landings, operations, discoveries, and mission endings.
+- **Moon, Mars, and beyond** — Explore each destination through a dedicated visual guide.
+- **Hardware gallery** — Learn about the landers, rovers, instruments, and spacecraft that made exploration possible.
+- **Source library** — Trace the research back to NASA, NSSDCA, JPL, and the NASA Image and Video Library.
+- **Responsive museum interface** — Designed for both large screens and mobile devices, with motion-reduction support.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Tech stack
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- React 19
+- TypeScript
+- Vite
+- React Router
+- Framer Motion
+- GSAP
+- Three.js
+
+## Run locally
+
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Then open the local URL shown by Vite.
+
+## Production build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Data and credits
+
+Mission facts and source links are maintained in [`src/data`](./src/data). Images and historical references come from public NASA resources, including the [NASA Image and Video Library](https://images.nasa.gov/), [NASA Science](https://science.nasa.gov/), [NASA/JPL](https://www.jpl.nasa.gov/), and [NSSDCA](https://nssdc.gsfc.nasa.gov/).
+
+## Deployment
+
+The site is deployed automatically to GitHub Pages from the `main` branch via [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml).
+
+**Live website:** https://notsoarshh.github.io/AfterLife-/
+
+## License
+
+This project is an educational and creative web experience. NASA names, imagery, and materials remain subject to their respective usage guidelines and source attributions.
