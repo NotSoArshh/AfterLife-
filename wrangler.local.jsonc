@@ -1,0 +1,12 @@
+// Local-only Worker config used to verify the production bundle in workerd
+// before deploying through Freebuff Sites. Not part of the deployment.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "afterlife-local",
+  "main": "sites/worker.js",
+  "compatibility_date": "2026-11-14",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+  },
+}

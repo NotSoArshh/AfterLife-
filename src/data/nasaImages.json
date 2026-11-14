@@ -1,0 +1,317 @@
+{
+  "apollo11-lm": {
+    "nasaId": "S69-39563",
+    "title": "Telecast of Astronauts Armstrong and Aldrin by the Lunar Module",
+    "center": "JSC",
+    "date": "1969-07-20",
+    "photographer": null,
+    "source": "https://images.nasa.gov/details/S69-39563",
+    "file": "/img/apollo11-lm.jpg"
+  },
+  "apollo11-surface": {
+    "nasaId": "as11-40-5874",
+    "title": "Apollo 11 Mission image - Astronaut Edwin Aldrin poses beside th",
+    "center": "JSC",
+    "date": "1969-07-21",
+    "photographer": null,
+    "source": "https://images.nasa.gov/details/as11-40-5874",
+    "file": "/img/apollo11-surface.jpg"
+  },
+  "lrv": {
+    "nasaId": "as17-137-20979",
+    "title": "Close-up of lunar roving vehicle at Apollo 17 Taurus-Littrow landing site",
+    "center": "JSC",
+    "date": "1972-12-12",
+    "photographer": null,
+    "source": "https://images.nasa.gov/details/as17-137-20979",
+    "file": "/img/lrv.jpg"
+  },
+  "lrv-apollo15": {
+    "nasaId": "S71-43943",
+    "title": "Apollo 15 - Extravehicular Activity (EVA) Panorama",
+    "center": "JSC",
+    "date": "1971-08-02",
+    "photographer": "N/A",
+    "source": "https://images.nasa.gov/details/S71-43943",
+    "file": "/img/lrv-apollo15.jpg"
+  },
+  "alsep": {
+    "nasaId": "jsc2011e118363",
+    "title": "jsc2011e118363 - Panorama view of Apollo 16 commander Astronaut John W. Young, working at the Lunar Roving Vehicle (LRV) just prior to deployment of the Apollo Lunar Surface Experiments Package (ALSEP) during the first moonwalk of the mission on April 21, ",
+    "center": "JSC",
+    "date": "2011-09-09",
+    "photographer": null,
+    "source": "https://images.nasa.gov/details/jsc2011e118363",
+    "file": "/img/alsep.jpg"
+  },
+  "surveyor3": {
+    "nasaId": "as12-48-7110",
+    "title": "Apollo 12 Mission image - View of the Surveyor III craft,which landed April 19,1967 ",
+    "center": "JSC",
+    "date": "1969-11-20",
+    "photographer": null,
+    "source": "https://images.nasa.gov/details/as12-48-7110",
+    "file": "/img/surveyor3.jpg"
+  },
+  "lunar-surface": {
+    "nasaId": "KSC-2009-3748",
+    "title": "KSC-2009-3748",
+    "center": "KSC",
+    "date": "2009-06-17",
+    "photographer": null,
+    "source": "https://images.nasa.gov/details/KSC-2009-3748",
+    "file": "/img/lunar-surface.jpg"
+  },
+  "sojourner": {
+    "nasaId": "PIA04422",
+    "title": "Rovers and Sojourner",
+    "center": "JPL",
+    "date": "2003-02-26",
+    "photographer": "Jet Propulsion Laboratory",
+    "source": "https://images.nasa.gov/details/PIA04422",
+    "file": "/img/sojourner.jpg"
+  },
+  "spirit": {
+    "nasaId": "PIA11744",
+    "title": "Full-Circle Bonestell Panorama from Spirit Stereo",
+    "center": "JPL",
+    "date": "2009-01-05",
+    "photographer": "NASA/JPL/Cornell University",
+    "source": "https://images.nasa.gov/details/PIA11744",
+    "file": "/img/spirit.jpg"
+  },
+  "opportunity": {
+    "nasaId": "PIA21492",
+    "title": "Mars Rover Opportunity Panorama of Rocheport Enhanced Color",
+    "center": "JPL",
+    "date": "2017-04-19",
+    "photographer": "NASA/JPL-Caltech/Cornell Univ./Arizona State Univ.",
+    "source": "https://images.nasa.gov/details/PIA21492",
+    "file": "/img/opportunity.jpg"
+  },
+  "viking": {
+    "nasaId": "PIA00563",
+    "title": "First Color Image From Viking Lander 1",
+    "center": "JPL",
+    "date": "1997-02-28",
+    "photographer": "NASA/JPL",
+    "source": "https://images.nasa.gov/details/PIA00563",
+    "file": "/img/viking.jpg"
+  },
+  "phoenix": {
+    "nasaId": "PIA11723",
+    "title": "Phoenix Lander on Mars with Surrounding Terrain, Polar Projection",
+    "center": "JPL",
+    "date": "2008-12-15",
+    "photographer": "NASA/JPL-Caltech/University Arizona/Texas A&M University",
+    "source": "https://images.nasa.gov/details/PIA11723",
+    "file": "/img/phoenix.jpg"
+  },
+  "insight": {
+    "nasaId": "PIA19664",
+    "title": "InSight Lander in Mars-Surface Configuration",
+    "center": "JPL",
+    "date": "2015-05-27",
+    "photographer": "NASA/JPL-Caltech/Lockheed Martin",
+    "source": "https://images.nasa.gov/details/PIA19664",
+    "file": "/img/insight.jpg"
+  },
+  "ingenuity": {
+    "nasaId": "PIA23720",
+    "title": "Ingenuity Mars Helicopter on the Martian Surface (Artist's Concept)",
+    "center": "JPL",
+    "date": "2020-07-14",
+    "photographer": "NASA/JPL-Caltech",
+    "source": "https://images.nasa.gov/details/PIA23720",
+    "file": "/img/ingenuity.jpg"
+  },
+  "dawn": {
+    "nasaId": "PIA12033",
+    "title": "Dawn Spacecraft with Vesta and Ceres Artist Concept",
+    "center": "JPL",
+    "date": "2009-05-29",
+    "photographer": "NASA/JPL",
+    "source": "https://images.nasa.gov/details/PIA12033",
+    "file": "/img/dawn.jpg"
+  },
+  "ceres": {
+    "nasaId": "PIA21906",
+    "title": "High Resolution Ceres View",
+    "center": "JPL",
+    "date": "2017-09-20",
+    "photographer": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA",
+    "source": "https://images.nasa.gov/details/PIA21906",
+    "file": "/img/ceres.jpg"
+  },
+  "vesta": {
+    "nasaId": "PIA17480",
+    "title": "Touring the Giant Asteroid Vesta",
+    "center": "JPL",
+    "date": "2013-09-13",
+    "photographer": "NASA/JPL-Caltech/UCLA/MPS/DLR/IDA",
+    "source": "https://images.nasa.gov/details/PIA17480",
+    "file": "/img/vesta.jpg"
+  },
+  "jupiter": {
+    "nasaId": "PIA24820",
+    "title": "Measuring the Gravity of Jupiter's Great Red Spot",
+    "center": "JPL",
+    "date": "2021-10-28",
+    "photographer": "NASA/JPL-Caltech/SwRI",
+    "source": "https://images.nasa.gov/details/PIA24820",
+    "file": "/img/jupiter.jpg"
+  },
+  "saturn": {
+    "nasaId": "PIA06193",
+    "title": "The Greatest Saturn Portrait ...Yet",
+    "center": "JPL",
+    "date": "2005-02-24",
+    "photographer": "NASA/JPL/Space Science Institute",
+    "source": "https://images.nasa.gov/details/PIA06193",
+    "file": "/img/saturn.jpg"
+  },
+  "kepler": {
+    "nasaId": "ACD20-0045-002",
+    "title": "Kepler's and K2's Fields of View",
+    "center": "ARC",
+    "date": "2020-04-16",
+    "photographer": "Wendy Stenzel",
+    "source": "https://images.nasa.gov/details/ACD20-0045-002",
+    "file": "/img/kepler.jpg"
+  },
+  "exoplanet": {
+    "nasaId": "PIA24372",
+    "title": "Possible Interiors of the TRAPPIST-1 Exoplanets",
+    "center": "JPL",
+    "date": "2021-01-22",
+    "photographer": "NASA/JPL-Caltech",
+    "source": "https://images.nasa.gov/details/PIA24372",
+    "file": "/img/exoplanet.jpg"
+  },
+  "mars-surface": {
+    "nasaId": "PIA24921",
+    "title": "Detailed Panorama of Mars' Jezero Crater Delta",
+    "center": "JPL",
+    "date": "2022-09-14",
+    "photographer": "NASA/JPL-Caltech/ASU/MSSS",
+    "source": "https://images.nasa.gov/details/PIA24921",
+    "file": "/img/mars-surface.jpg"
+  },
+  "starfield": {
+    "nasaId": "astronomers-set-a-new-galaxy-distance-record_17389972462_o",
+    "title": "Astronomers Set a New Galaxy Distance Record",
+    "center": "GSFC",
+    "date": "2015-05-06",
+    "photographer": null,
+    "source": "https://images.nasa.gov/details/astronomers-set-a-new-galaxy-distance-record_17389972462_o",
+    "file": "/img/starfield.jpg"
+  },
+  "curiosity": {
+    "nasaId": "PIA19808",
+    "title": "Looking Up at Mars Rover Curiosity in Buckskin Selfie",
+    "center": "JPL",
+    "date": "2015-08-19",
+    "photographer": "NASA/JPL-Caltech/MSSS",
+    "source": "https://images.nasa.gov/details/PIA19808",
+    "file": "/img/curiosity.jpg"
+  },
+  "tranquility": {
+    "nasaId": "S69-44463",
+    "title": "Apollo 11 lunar surface panoramic views",
+    "center": "JSC",
+    "date": "1969-07-01",
+    "photographer": null,
+    "source": "https://images.nasa.gov/details/S69-44463",
+    "file": "/img/tranquility.jpg"
+  },
+  "moon-full": {
+    "nasaId": "GSFC_20171208_Archive_e001861",
+    "title": "Full Moon",
+    "center": "GSFC",
+    "date": "2017-12-08",
+    "photographer": null,
+    "source": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001861",
+    "file": "/img/moon-full.jpg"
+  },
+  "moon-footprint": {
+    "nasaId": "as11-40-5880",
+    "title": "Close-up view of astronauts foot and footprint in lunar soil",
+    "center": "JSC",
+    "date": "1969-07-20",
+    "photographer": null,
+    "source": "https://images.nasa.gov/details/as11-40-5880",
+    "file": "/img/moon-footprint.jpg"
+  },
+  "pioneer-plaque": {
+    "nasaId": "ARC-1972-AC72-2135",
+    "title": "ARC-1972-AC72-2135",
+    "center": "ARC",
+    "date": "1972-02-26",
+    "photographer": null,
+    "source": "https://images.nasa.gov/details/ARC-1972-AC72-2135",
+    "file": "/img/pioneer-plaque.jpg"
+  },
+  "apollo12-surface": {
+    "nasaId": "as12-49-7281",
+    "title": "Apollo 12 Mission image  - Astronaut Alan L. Bean with the Hand Tool Kit",
+    "center": "JSC",
+    "date": "2009-01-29",
+    "photographer": null,
+    "source": "https://images.nasa.gov/details/as12-49-7281",
+    "file": "/img/apollo12-surface.jpg"
+  },
+  "orion-earthset": {
+    "nasaId": "art002e021278",
+    "title": "A Breathtaking Earthset from Orion",
+    "center": "JSC",
+    "date": "2026-04-06",
+    "photographer": "NASA",
+    "source": "https://images.nasa.gov/details/art002e021278",
+    "file": "/img/orion-earthset.jpg"
+  },
+  "viking2": {
+    "nasaId": "PIA00568",
+    "title": "First Color Image of the Viking Lander 2 Site",
+    "center": "JPL",
+    "date": "1997-02-28",
+    "photographer": "NASA/JPL",
+    "source": "https://images.nasa.gov/details/PIA00568",
+    "file": "/img/viking2.jpg"
+  },
+  "eros": {
+    "nasaId": "PIA02470",
+    "title": "Eros in Color",
+    "center": "JPL",
+    "date": "2000-05-07",
+    "photographer": "NASA/JPL/JHUAPL",
+    "source": "https://images.nasa.gov/details/PIA02470",
+    "file": "/img/eros.jpg"
+  },
+  "eros-sunset": {
+    "nasaId": "PIA02493",
+    "title": "Sunset on Eros",
+    "center": "JPL",
+    "date": "2000-06-10",
+    "photographer": "NASA/JPL/JHUAPL",
+    "source": "https://images.nasa.gov/details/PIA02493",
+    "file": "/img/eros-sunset.jpg"
+  },
+  "near-eros": {
+    "nasaId": "PIA03148",
+    "title": "Final Eros Images: Last, Closest Image of Eros",
+    "center": "JPL",
+    "date": "2001-02-17",
+    "photographer": "NASA/JPL/JHUAPL",
+    "source": "https://images.nasa.gov/details/PIA03148",
+    "file": "/img/near-eros.jpg"
+  },
+  "kepler-spacecraft": {
+    "nasaId": "PIA11824",
+    "title": "Kepler in Space Artist Concept",
+    "center": "JPL",
+    "date": "2009-03-06",
+    "photographer": "NASA/Ames/JPL-Caltech",
+    "source": "https://images.nasa.gov/details/PIA11824",
+    "file": "/img/kepler-spacecraft.jpg"
+  }
+}
