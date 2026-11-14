@@ -1,13 +1,16 @@
 import { NASA_IMAGES } from "./nasaImages";
 import type { NasaImageMeta } from "./nasaImages";
 
-export const FALLBACK_IMAGE = "/img/moon-full.jpg";
+const assetPath = (path: string): string =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
+export const FALLBACK_IMAGE = assetPath("/img/moon-full.jpg");
 
 export const imageMeta = (key: string | undefined): NasaImageMeta | undefined =>
   key ? NASA_IMAGES[key] : undefined;
 
 export const imageSrc = (key: string | undefined): string =>
-  imageMeta(key)?.file ?? FALLBACK_IMAGE;
+  assetPath(imageMeta(key)?.file ?? "/img/moon-full.jpg");
 
 /** Human-readable alt text: the mission's own description when supplied, otherwise NASA's title. */
 export const imageAlt = (key: string, fallback: string): string => {
