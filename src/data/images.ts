@@ -1,8 +1,12 @@
 import { NASA_IMAGES } from "./nasaImages";
 import type { NasaImageMeta } from "./nasaImages";
 
-const assetPath = (path: string): string =>
-  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+const assetPath = (path: string): string => {
+  const base = import.meta.env.BASE_URL.endsWith("/")
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+  return `${base}${path.replace(/^\/+/, "")}`;
+};
 
 export const FALLBACK_IMAGE = assetPath("/img/moon-full.jpg");
 
