@@ -4907,3 +4907,436 @@ h4 {
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   MODERN LAYER
+   Glass, light and motion, layered over the editorial system above. Additive
+   only: surfaces are modernised and scroll/pointer behaviour is added; no
+   component, copy or record is removed.
+   ========================================================================== */
+
+:root {
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-pill: 999px;
+  --hair: rgba(243, 240, 234, 0.11);
+  --glass: linear-gradient(140deg, rgba(20, 24, 34, 0.66), rgba(8, 10, 16, 0.5));
+}
+
+/* ---------- nav: floating glass capsule ---------- */
+
+@media (min-width: 1025px) {
+  .nav {
+    top: 16px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: min(1280px, calc(100% - 48px));
+    padding: 13px clamp(20px, 2vw, 30px);
+    border: 1px solid var(--hair);
+    border-radius: var(--r-pill);
+    background: var(--glass);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    box-shadow: 0 20px 50px -34px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .nav--solid {
+    padding-block: 9px;
+    border-color: rgba(243, 240, 234, 0.15);
+    background: linear-gradient(140deg, rgba(16, 19, 28, 0.92), rgba(7, 9, 14, 0.86));
+  }
+
+  .nav::after {
+    content: "";
+    position: absolute;
+    left: 14%;
+    right: 14%;
+    bottom: -1px;
+    height: 1px;
+    pointer-events: none;
+    opacity: 0.55;
+    background: linear-gradient(90deg, transparent, rgba(240, 205, 147, 0.6), rgba(179, 156, 255, 0.55), transparent);
+  }
+
+  .nav__link.is-active::after {
+    height: 2px;
+    box-shadow: 0 0 12px rgba(240, 205, 147, 0.85);
+  }
+
+  .nav__mark {
+    animation: markSpin 30s linear infinite;
+  }
+}
+
+@keyframes markSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- hero: engineering grid + pointer light ---------- */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 88px 88px;
+  -webkit-mask-image: radial-gradient(ellipse 72% 62% at 50% 42%, #000 18%, transparent 74%);
+  mask-image: radial-gradient(ellipse 72% 62% at 50% 42%, #000 18%, transparent 74%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(460px circle at var(--mx, 68%) var(--my, 34%), rgba(179, 156, 255, 0.16), transparent 66%);
+  transition: opacity 0.4s var(--ease);
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+  border-radius: var(--r-pill);
+  padding-inline: 26px;
+  will-change: transform;
+}
+
+.btn--line {
+  border-color: rgba(243, 240, 234, 0.2);
+}
+
+/* ---------- card spotlight (pointer position is set by ScrollFX) ---------- */
+
+.taxonomy__card,
+.destinations__card,
+.rail__item {
+  --cx: 50%;
+  --cy: 50%;
+}
+
+.taxonomy__card::after,
+.destinations__card::after,
+.rail__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(260px circle at var(--cx) var(--cy), rgba(255, 255, 255, 0.07), transparent 62%);
+  transition: opacity 0.45s var(--ease);
+}
+
+.taxonomy__card:hover::after,
+.destinations__card:hover::after,
+.rail__item:hover::after {
+  opacity: 1;
+}
+
+/* ---------- destinations: glass panels ---------- */
+
+.destinations__card {
+  padding: 24px 22px 26px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-md);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0) 55%), rgba(10, 12, 18, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.5s var(--ease), border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+
+.destinations__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(147, 215, 245, 0.34);
+  box-shadow: 0 26px 60px -34px rgba(147, 215, 245, 0.5);
+}
+
+/* ---------- rail ---------- */
+
+.rail {
+  scroll-snap-type: x proximity;
+}
+
+.rail__item {
+  position: relative;
+  scroll-snap-align: start;
+  transition: transform 0.5s var(--ease);
+}
+
+.rail__item:hover {
+  transform: translateY(-6px);
+}
+
+.rail__img {
+  border-radius: var(--r-sm);
+}
+
+.rail::-webkit-scrollbar {
+  height: 4px;
+}
+
+.rail::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.rail::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: linear-gradient(90deg, #f0cd93, #93d7f5 60%, #b39cff);
+}
+
+/* ---------- image frames ---------- */
+
+.frame__media {
+  border-radius: var(--r-md);
+}
+
+.frame__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- ticker ---------- */
+
+.ticker {
+  position: relative;
+  overflow: hidden;
+  padding-block: 15px;
+  border-block: 1px solid var(--hair);
+  background: linear-gradient(90deg, rgba(240, 205, 147, 0.06), rgba(179, 156, 255, 0.05) 50%, rgba(147, 215, 245, 0.06));
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.ticker__track {
+  display: flex;
+  width: max-content;
+  animation: tickerScroll 52s linear infinite;
+}
+
+.ticker:hover .ticker__track {
+  animation-play-state: paused;
+}
+
+.ticker__group {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  padding-right: 34px;
+}
+
+.ticker__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #b7b3ab;
+}
+
+.ticker__dot {
+  width: 4px;
+  height: 4px;
+  flex: none;
+  background: var(--gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(240, 205, 147, 0.8);
+}
+
+@keyframes tickerScroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- scroll HUD ---------- */
+
+.hud {
+  position: fixed;
+  right: clamp(14px, 2vw, 30px);
+  bottom: clamp(14px, 2vw, 26px);
+  z-index: 80;
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 15px 9px 16px;
+  border: 1px solid rgba(243, 240, 234, 0.12);
+  border-radius: var(--r-pill);
+  background: rgba(8, 10, 16, 0.6);
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9a9da6;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) and (pointer: fine) {
+  .hud {
+    display: flex;
+  }
+}
+
+.hud.is-on {
+  opacity: 1;
+  transform: none;
+}
+
+.hud__label {
+  max-width: 27ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #d9d5cd;
+}
+
+.hud__bar {
+  width: 62px;
+  height: 2px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.hud__fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #ff8f52, #f0cd93 40%, #93d7f5 75%, #b39cff);
+}
+
+.hud__pct {
+  min-width: 4ch;
+  text-align: right;
+  color: var(--gold);
+}
+
+/* ---------- scroll parallax ---------- */
+
+.parallax__inner {
+  height: 100%;
+}
+
+.chapter__media {
+  height: calc(100% + 80px);
+  margin-block: -40px;
+}
+
+.closing__parallax {
+  height: calc(100% + 100px);
+  margin-top: -50px;
+}
+
+/* The moving layer needs overscan, so the still is always larger than its box. */
+.chapter__figure img {
+  transform: scale(1.1);
+}
+
+.chapter:hover .chapter__figure img {
+  transform: scale(1.14);
+}
+
+/* ---------- section separators: gradient hairlines ---------- */
+
+.statement,
+.taxonomy,
+.railSection,
+.destinations {
+  position: relative;
+  border-top-color: transparent;
+}
+
+.statement::before,
+.taxonomy::before,
+.railSection::before,
+.destinations::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+  opacity: 0.8;
+  background: linear-gradient(90deg, transparent, rgba(240, 205, 147, 0.34), rgba(179, 156, 255, 0.3), transparent);
+}
+
+/* ---------- small controls ---------- */
+
+.chip,
+.search__input {
+  border-radius: var(--r-pill);
+}
+
+.linkish,
+.chapter__link {
+  background-image: linear-gradient(90deg, var(--gold), var(--violet));
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  transition: background-size 0.45s var(--ease), color 0.3s var(--ease);
+}
+
+.linkish:hover,
+.chapter__link:hover {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker__track,
+  .nav__mark {
+    animation: none;
+  }
+
+  .hero::after {
+    display: none;
+  }
+
+  .hud {
+    display: none;
+  }
+
+  .destinations__card:hover,
+  .rail__item:hover {
+    transform: none;
+  }
+}
+
+/* The ledger card fills the last cell of the taxonomy grid with a real
+   destination instead of leaving a hole. */
+.taxonomy__card--ledger {
+  background: linear-gradient(160deg, rgba(240, 205, 147, 0.07), rgba(8, 9, 14, 0) 62%), #08090e;
+}
+
+.taxonomy__card--ledger .eyebrow {
+  margin-bottom: 12px;
+}
+
+.taxonomy__link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+}

@@ -4,6 +4,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Globe from "../components/Globe";
 import Reveal from "../components/Reveal";
+import Parallax from "../components/Parallax";
+import Ticker from "../components/Ticker";
+import CountUp from "../components/CountUp";
 import ImageFrame from "../components/ImageFrame";
 import StatusBadge from "../components/StatusBadge";
 import { MISSIONS, countByStatus, getMission } from "../data/missions";
@@ -150,7 +153,7 @@ const Home = () => {
 
       <section className="statement">
         <div className="wrap">
-          <Reveal>
+          <Reveal variant="mask">
             <p className="eyebrow">The idea</p>
             <blockquote className="statement__quote">
               We call them <em>abandoned</em>. Most of them were simply{" "}
@@ -184,7 +187,9 @@ const Home = () => {
           <Reveal className="stats">
             {HEADLINE_STATS.map((stat) => (
               <div className="stat" key={stat.label}>
-                <span className="stat__value">{stat.value}</span>
+                <span className="stat__value">
+                  <CountUp value={stat.value} />
+                </span>
                 <span className="stat__label">{stat.label}</span>
               </div>
             ))}
@@ -192,11 +197,24 @@ const Home = () => {
         </div>
       </section>
 
+      <Ticker
+        items={[
+          "13 mission records",
+          "6 destinations",
+          "58 years of hardware",
+          "1,319 marsquakes recorded",
+          "1966 — present",
+          "Built on NASA & NSSDCA records",
+        ]}
+      />
+
       <section className="chapters" aria-label="Destinations">
         {CHAPTERS.map((chapter) => (
           <article className={`chapter chapter--${chapter.key}`} key={chapter.key}>
             <div className="chapter__figure">
-              <img src={imageSrc(chapter.image)} alt={chapter.alt} loading="lazy" decoding="async" />
+              <Parallax className="chapter__media" speed={40}>
+                <img src={imageSrc(chapter.image)} alt={chapter.alt} loading="lazy" decoding="async" />
+              </Parallax>
               <span className="chapter__kicker">{chapter.kicker}</span>
             </div>
             <div className="chapter__body">
@@ -217,7 +235,7 @@ const Home = () => {
 
       <section className="taxonomy">
         <div className="wrap">
-          <Reveal className="sectionHead">
+          <Reveal className="sectionHead" variant="mask">
             <p className="eyebrow">How to read this museum</p>
             <h2 className="sectionHead__title">
               Seven ways for a mission to end.
@@ -235,13 +253,23 @@ const Home = () => {
                 <p className="taxonomy__blurb">{STATUS[key].blurb}</p>
               </Reveal>
             ))}
+            <Reveal delay={0.28} className="taxonomy__card taxonomy__card--ledger">
+              <p className="eyebrow">The full ledger</p>
+              <p className="taxonomy__blurb">
+                Thirteen records, seven endings, six destinations. Every object is filed by how it
+                stopped — and by what is still running.
+              </p>
+              <Link to="/archive" className="linkish taxonomy__link">
+                Open the archive →
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>
 
       <section className="railSection">
         <div className="wrap">
-          <Reveal className="sectionHead sectionHead--split">
+          <Reveal className="sectionHead sectionHead--split" variant="mask">
             <div>
               <p className="eyebrow">Selected objects</p>
               <h2 className="sectionHead__title">Six things still out there</h2>
@@ -276,10 +304,12 @@ const Home = () => {
 
       <section className="closing">
         <div className="closing__bg" aria-hidden="true">
-          <img src={imageSrc("orion-earthset")} alt="" loading="lazy" decoding="async" />
+          <Parallax className="closing__parallax" speed={36}>
+            <img src={imageSrc("orion-earthset")} alt="" loading="lazy" decoding="async" />
+          </Parallax>
         </div>
         <div className="wrap closing__inner">
-          <Reveal>
+          <Reveal variant="mask">
             <p className="eyebrow eyebrow--gold">Epilogue</p>
             <h2 className="closing__title">
               They are not lost.

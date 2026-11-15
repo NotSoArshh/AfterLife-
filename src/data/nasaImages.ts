@@ -279,7 +279,7 @@ export const NASA_IMAGES: Record<string, NasaImageMeta> = {
     "date": "2026-04-06",
     "photographer": "NASA",
     "source": "https://images.nasa.gov/details/art002e021278",
-    "file": "/img/earthrise.jpg"
+    "file": "/img/orion-earthset.jpg"
   },
   "viking2": {
     "nasaId": "PIA00568",
