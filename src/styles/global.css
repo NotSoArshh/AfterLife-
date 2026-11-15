@@ -30,6 +30,7 @@
      "terminal" at small sizes. Mono is reserved for coordinates and IDs. */
   --font-label: "Manrope", system-ui, -apple-system, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+  --font-home-display: "DM Serif Display", "Iowan Old Style", Georgia, serif;
 
   --pad: clamp(20px, 5vw, 72px);
   --maxw: 1360px;
@@ -1260,6 +1261,11 @@ p {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.home .hero__title,
+.home .statement__quote {
+  font-family: var(--font-home-display);
 }
 
 .hero__sub {
