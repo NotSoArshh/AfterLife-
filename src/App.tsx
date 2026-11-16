@@ -11,6 +11,7 @@ const TimelinePage = lazy(() => import("./pages/TimelinePage"));
 const MoonPage = lazy(() => import("./pages/MoonPage"));
 const MarsPage = lazy(() => import("./pages/MarsPage"));
 const HardwarePage = lazy(() => import("./pages/HardwarePage"));
+const HangarPage = lazy(() => import("./pages/HangarPage"));
 const LegacyPage = lazy(() => import("./pages/LegacyPage"));
 const SourcesPage = lazy(() => import("./pages/SourcesPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -93,6 +94,14 @@ const App = () => {
               element={
                 <PageTransition reduce={!!reduce}>
                   <HardwarePage />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/hangar"
+              element={
+                <PageTransition reduce={!!reduce}>
+                  <HangarPage />
                 </PageTransition>
               }
             />

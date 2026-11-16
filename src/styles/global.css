@@ -5340,3 +5340,621 @@ h4 {
   font-size: 9.5px;
   letter-spacing: 0.2em;
 }
+
+/* ==========================================================================
+   HANGAR — interactive 3-D hardware explorer
+   ========================================================================== */
+
+/* One more nav item, so the capsule tightens slightly before it can crowd. */
+@media (min-width: 1025px) and (max-width: 1240px) {
+  .nav__links {
+    gap: 13px;
+  }
+
+  .nav__link {
+    font-size: 9.5px;
+    letter-spacing: 0.13em;
+  }
+
+  .nav__brandSub {
+    display: none;
+  }
+}
+
+.pageHead__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.pageHead__ctaNote {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--faint);
+}
+
+/* ---------- homepage teaser ---------- */
+
+.teaser3d {
+  position: relative;
+  padding-block: clamp(56px, 8vw, 104px);
+  border-top: 1px solid transparent;
+  background:
+    radial-gradient(ellipse 58% 70% at 82% 38%, rgba(109, 91, 208, 0.26), transparent 62%),
+    radial-gradient(ellipse 42% 52% at 10% 84%, rgba(147, 215, 245, 0.1), transparent 62%),
+    #070810;
+}
+
+.teaser3d::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+  opacity: 0.8;
+  background: linear-gradient(90deg, transparent, rgba(240, 205, 147, 0.34), rgba(179, 156, 255, 0.3), transparent);
+}
+
+.teaser3d__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: center;
+}
+
+.teaser3d__lede {
+  max-width: 46ch;
+  margin: 14px 0 26px;
+  font-size: 15px;
+  line-height: 1.72;
+  color: #b6b2ab;
+}
+
+.teaser3d__visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  perspective: 1000px;
+}
+
+.teaser3d__ring {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px dashed rgba(243, 240, 234, 0.16);
+  animation: ringSpin 60s linear infinite;
+}
+
+.teaser3d__cube {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  transform-style: preserve-3d;
+  animation: cubeSpin 26s linear infinite;
+}
+
+.teaser3d__cube span {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(240, 205, 147, 0.45);
+  background: linear-gradient(140deg, rgba(147, 215, 245, 0.09), rgba(179, 156, 255, 0.05));
+  box-shadow: inset 0 0 44px rgba(147, 215, 245, 0.14);
+}
+
+.teaser3d__cube span:nth-child(1) {
+  transform: translateZ(90px);
+}
+.teaser3d__cube span:nth-child(2) {
+  transform: rotateY(180deg) translateZ(90px);
+}
+.teaser3d__cube span:nth-child(3) {
+  transform: rotateY(90deg) translateZ(90px);
+}
+.teaser3d__cube span:nth-child(4) {
+  transform: rotateY(-90deg) translateZ(90px);
+}
+.teaser3d__cube span:nth-child(5) {
+  transform: rotateX(90deg) translateZ(90px);
+}
+.teaser3d__cube span:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(90px);
+}
+
+@keyframes cubeSpin {
+  from {
+    transform: rotateX(-16deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-16deg) rotateY(360deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .teaser3d__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .teaser3d__visual {
+    min-height: 250px;
+  }
+
+  .teaser3d__cube {
+    scale: 0.72;
+  }
+
+  .teaser3d__ring {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+/* ---------- hangar layout ---------- */
+
+.hangar {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: clamp(18px, 2.6vw, 36px);
+  align-items: start;
+}
+
+.hangar__rail {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hangar__railHead {
+  margin: 0 0 6px 4px;
+  font-family: var(--font-label);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.hangar__railBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 11px 13px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  text-align: left;
+  transition: background 0.35s var(--ease), border-color 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.hangar__railBtn:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(2px);
+}
+
+.hangar__railBtn.is-on {
+  border-color: rgba(240, 205, 147, 0.45);
+  background: linear-gradient(120deg, rgba(240, 205, 147, 0.14), rgba(179, 156, 255, 0.08));
+}
+
+.hangar__railTitle {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--paper);
+}
+
+.hangar__railSub {
+  font-family: var(--font-label);
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.hangar__main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+/* ---------- viewer ---------- */
+
+.viewer {
+  position: relative;
+  border: 1px solid var(--hair);
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 18%, rgba(38, 48, 74, 0.6), transparent 70%),
+    #06080e;
+}
+
+.hangar__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.toggle {
+  padding: 6px 12px;
+  border: 1px solid rgba(243, 240, 234, 0.16);
+  border-radius: var(--r-pill);
+  font-family: var(--font-label);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #b8b4ac;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.toggle:hover {
+  border-color: rgba(147, 215, 245, 0.5);
+  color: #eaf7ff;
+}
+
+.toggle.is-on {
+  border-color: rgba(240, 205, 147, 0.55);
+  background: linear-gradient(118deg, rgba(240, 205, 147, 0.22), rgba(179, 156, 255, 0.16));
+  color: #ffeccb;
+}
+
+.hangar__toolbarNote {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.viewer__stage {
+  position: relative;
+  height: clamp(400px, 54vh, 600px);
+}
+
+.viewer__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+
+.viewer__canvas:active {
+  cursor: grabbing;
+}
+
+.viewer__labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hotspot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px 5px 8px;
+  border: 1px solid rgba(243, 240, 234, 0.16);
+  border-radius: var(--r-pill);
+  background: rgba(8, 10, 16, 0.74);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--font-label);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #ded9d1;
+  opacity: 0;
+  pointer-events: auto;
+  transition: opacity 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease),
+    color 0.3s var(--ease);
+}
+
+.hotspot__dot {
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: #ffd9a0;
+  box-shadow: 0 0 10px rgba(255, 217, 160, 0.9);
+}
+
+.hotspot:hover {
+  border-color: rgba(240, 205, 147, 0.65);
+  color: #fff6e6;
+}
+
+.hotspot.is-on {
+  border-color: rgba(147, 215, 245, 0.8);
+  background: rgba(10, 24, 32, 0.92);
+  color: #eaf7ff;
+}
+
+.hotspot.is-on .hotspot__dot {
+  background: #93d7f5;
+  box-shadow: 0 0 12px rgba(147, 215, 245, 0.95);
+}
+
+.viewer__hint {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(243, 240, 234, 0.42);
+  pointer-events: none;
+}
+
+.viewer__fallback {
+  padding: 40px 24px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* ---------- record panel ---------- */
+
+.hangar__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: clamp(18px, 2.4vw, 28px);
+  border: 1px solid var(--hair);
+  border-radius: 18px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0) 55%), rgba(9, 11, 17, 0.6);
+}
+
+.hangar__panelHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.hangar__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  line-height: 1.02;
+}
+
+.hangar__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.hangar__label {
+  margin: 0 0 6px;
+  font-family: var(--font-label);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hangar__body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #bdb9b1;
+}
+
+.hangar__part {
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  transition: background 0.4s var(--ease);
+}
+
+.hangar__part.is-on {
+  background: linear-gradient(120deg, rgba(147, 215, 245, 0.07), transparent 70%);
+}
+
+.hangar__panelFoot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.hangar__disclaimer {
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--faint);
+}
+
+@media (max-width: 900px) {
+  .hangar {
+    grid-template-columns: 1fr;
+  }
+
+  .hangar__rail {
+    position: static;
+    flex-direction: row;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+
+  .hangar__railHead {
+    display: none;
+  }
+
+  .hangar__railBtn {
+    flex: none;
+    width: 168px;
+  }
+
+  .hangar__facts {
+    grid-template-columns: 1fr;
+  }
+
+  .viewer__stage {
+    height: 380px;
+  }
+
+  .hotspot {
+    padding: 7px;
+  }
+
+  .hotspot__text {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .teaser3d__cube,
+  .teaser3d__ring {
+    animation: none;
+  }
+}
+
+/* Hotspot labels stay collapsed to a dot until pointed at, so parts that share
+   an axis do not print their captions on top of each other. */
+.hotspot {
+  padding: 9px;
+  gap: 0;
+}
+
+.hotspot:hover,
+.hotspot:focus-visible,
+.hotspot.is-on {
+  padding: 5px 10px 5px 8px;
+  gap: 7px;
+}
+
+.hotspot__text {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-width 0.35s var(--ease), opacity 0.25s var(--ease);
+}
+
+.hotspot:hover .hotspot__text,
+.hotspot:focus-visible .hotspot__text,
+.hotspot.is-on .hotspot__text {
+  max-width: 220px;
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .hotspot {
+    padding: 11px;
+  }
+
+  .hotspot__text {
+    display: none;
+  }
+}
+
+/* Specimen data, part index and keyboard affordances ---------------------- */
+.hangar__spec {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 22px;
+  margin: 20px 0 6px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.hangar__spec dt {
+  margin: 0 0 6px;
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.hangar__spec dd {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--paper-2);
+}
+
+.hangar__parts {
+  margin-top: 22px;
+}
+
+.hangar__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.partChip {
+  appearance: none;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--paper-2);
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: color 0.24s var(--ease), border-color 0.24s var(--ease), background 0.24s var(--ease);
+}
+
+.partChip:hover,
+.partChip:focus-visible,
+.partChip.is-on {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.hangar__toolbarHint {
+  display: none;
+  margin-left: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+@media (min-width: 900px) {
+  .hangar__toolbarHint {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.viewer__stage:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: -1px;
+}
+
+@media (max-width: 760px) {
+  .hangar__spec {
+    grid-template-columns: 1fr 1fr;
+  }
+}

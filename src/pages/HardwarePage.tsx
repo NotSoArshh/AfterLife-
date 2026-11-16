@@ -59,6 +59,14 @@ const HardwarePage = () => {
             Spacecraft, landers, rovers, instruments, helicopters, telescopes and probes — what each
             one was for, and what became of it. One of these parts is still in service today.
           </p>
+          <div className="pageHead__cta">
+            <Link to="/hangar" className="btn btn--gold">
+              Open the 3D hangar
+            </Link>
+            <p className="pageHead__ctaNote">
+              Nine of these objects can be orbited, x-rayed and taken apart.
+            </p>
+          </div>
           <div className="hwSummary">
             <div>
               <span className="hwSummary__value">{rows.length}</span>

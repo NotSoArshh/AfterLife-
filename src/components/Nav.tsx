@@ -8,6 +8,7 @@ const LINKS = [
   { to: "/moon", label: "Moon" },
   { to: "/mars", label: "Mars" },
   { to: "/hardware", label: "Hardware" },
+  { to: "/hangar", label: "Hangar" },
   { to: "/legacy", label: "Legacy" },
 ];
 

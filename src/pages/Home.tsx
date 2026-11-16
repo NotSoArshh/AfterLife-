@@ -233,6 +233,33 @@ const Home = () => {
         ))}
       </section>
 
+      <section className="teaser3d">
+        <div className="wrap teaser3d__inner">
+          <Reveal className="teaser3d__text">
+            <p className="eyebrow">Interactive · 3-D</p>
+            <h2 className="sectionHead__title">Take the hardware apart.</h2>
+            <p className="teaser3d__lede">
+              Nine objects from the collection, rebuilt as models you can orbit, zoom and dissect —
+              every part labelled, every label tied back to its record.
+            </p>
+            <Link to="/hangar" className="btn btn--gold">
+              Open the hangar
+            </Link>
+          </Reveal>
+          <Reveal className="teaser3d__visual" variant="zoom">
+            <div className="teaser3d__ring" aria-hidden="true" />
+            <div className="teaser3d__cube" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="taxonomy">
         <div className="wrap">
           <Reveal className="sectionHead" variant="mask">
