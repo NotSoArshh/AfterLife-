@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, useReducedMotion } from "framer-motion";
 import Layout from "./components/Layout";
 import PageTransition from "./components/PageTransition";
+import CommandPalette from "./components/CommandPalette";
 
 const Home = lazy(() => import("./pages/Home"));
 const Archive = lazy(() => import("./pages/Archive"));
@@ -37,6 +38,7 @@ const App = () => {
 
   return (
     <Layout>
+      <CommandPalette />
       <ScrollToTop />
       <Suspense fallback={<RouteFallback />}>
         <AnimatePresence mode="wait" initial={false}>

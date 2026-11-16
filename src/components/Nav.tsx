@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { openSearch } from "./CommandPalette";
 
 const LINKS = [
   { to: "/archive", label: "Archive" },
@@ -64,6 +65,19 @@ const Nav = () => {
         </nav>
 
         <div className="nav__actions">
+          <button
+            type="button"
+            className="nav__search"
+            onClick={openSearch}
+            aria-label="Search the museum"
+            aria-keyshortcuts="Control+K Meta+K"
+          >
+            <span className="nav__searchIcon" aria-hidden="true">
+              ⌕
+            </span>
+            <span className="nav__searchText">Search</span>
+            <kbd>⌘K</kbd>
+          </button>
           <NavLink to="/sources" className="nav__source">
             Sources
           </NavLink>
@@ -92,6 +106,17 @@ const Nav = () => {
             transition={{ duration: 0.35 }}
           >
             <nav className="menu__inner" aria-label="Mobile">
+              <button
+                type="button"
+                className="menu__link menu__search"
+                onClick={() => {
+                  setOpen(false);
+                  openSearch();
+                }}
+              >
+                <span className="menu__index">⌕</span>
+                Search the collection
+              </button>
               {LINKS.concat({ to: "/sources", label: "Sources" }).map((link, i) => (
                 <motion.div
                   key={link.to}

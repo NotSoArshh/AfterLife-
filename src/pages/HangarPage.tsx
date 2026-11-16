@@ -1,16 +1,29 @@
-import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import HardwareViewer from "../components/HardwareViewer";
 import Reveal from "../components/Reveal";
 import StatusBadge from "../components/StatusBadge";
 import { HARDWARE_MODELS, resolveModel } from "../data/hardwareModels";
 
+const findModel = (id: string | null) => HARDWARE_MODELS.find((m) => m.id === id);
+
 const HangarPage = () => {
-  const [modelId, setModelId] = useState(HARDWARE_MODELS[0].id);
-  const [part, setPart] = useState<string | null>(null);
-  const [autoRotate, setAutoRotate] = useState(true);
-  const [xray, setXray] = useState(false);
-  const [exploded, setExploded] = useState(false);
+  const [params, setParams] = useSearchParams();
+
+  // A shared link restores the object, the part and the view toggles.
+  const linked = findModel(params.get("object")) ?? HARDWARE_MODELS[0];
+  const linkedPart = params.get("part");
+  const linkedView = params.get("view") ?? "";
+
+  const [modelId, setModelId] = useState(linked.id);
+  const [part, setPart] = useState<string | null>(
+    linked.parts.some((p) => p.id === linkedPart) ? linkedPart : null,
+  );
+  const [autoRotate, setAutoRotate] = useState(params.get("orbit") !== "0");
+  const [xray, setXray] = useState(linkedView.includes("xray"));
+  const [exploded, setExploded] = useState(linkedView.includes("exploded"));
+  const [copied, setCopied] = useState(false);
+  const [speaking, setSpeaking] = useState(false);
 
   const active = useMemo(
     () => HARDWARE_MODELS.find((m) => m.id === modelId) ?? HARDWARE_MODELS[0],
@@ -23,6 +36,85 @@ const HangarPage = () => {
     setModelId(id);
     setPart(null);
   };
+
+  // Keep the address bar describing exactly what is on screen.
+  useEffect(() => {
+    const next = new URLSearchParams();
+    next.set("object", active.id);
+    if (part) next.set("part", part);
+    const view = [xray ? "xray" : "", exploded ? "exploded" : ""].filter(Boolean).join(",");
+    if (view) next.set("view", view);
+    if (!autoRotate) next.set("orbit", "0");
+    setParams(next, { replace: true });
+  }, [active.id, part, xray, exploded, autoRotate, setParams]);
+
+  const speechReady = typeof window !== "undefined" && "speechSynthesis" in window;
+
+  // Stop the guide when the exhibit or the part changes, and on the way out.
+  useEffect(() => {
+    return () => {
+      window.speechSynthesis?.cancel();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!speaking) return;
+    window.speechSynthesis?.cancel();
+    setSpeaking(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active.id, part]);
+
+  const listen = () => {
+    if (!speechReady) return;
+    const synth = window.speechSynthesis;
+    if (speaking) {
+      synth.cancel();
+      setSpeaking(false);
+      return;
+    }
+    const script = [
+      active.title,
+      mission?.destinationLabel,
+      hardware?.role,
+      hardware?.now ? `Today: ${hardware.now}` : "",
+      partInfo ? `${partInfo.label}. ${partInfo.note}` : "",
+    ]
+      .filter(Boolean)
+      .join(". ");
+    const utterance = new SpeechSynthesisUtterance(script);
+    utterance.rate = 0.94;
+    utterance.pitch = 0.96;
+    utterance.onend = () => setSpeaking(false);
+    utterance.onerror = () => setSpeaking(false);
+    synth.cancel();
+    synth.speak(utterance);
+    setSpeaking(true);
+  };
+
+  const copyLink = async () => {
+    const url = window.location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      // Clipboard API needs a secure context; fall back to a hidden field.
+      const field = document.createElement("textarea");
+      field.value = url;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.appendChild(field);
+      field.select();
+      document.execCommand("copy");
+      document.body.removeChild(field);
+    }
+    setCopied(true);
+  };
+
+  useEffect(() => {
+    if (!copied) return;
+    const id = window.setTimeout(() => setCopied(false), 2200);
+    return () => window.clearTimeout(id);
+  }, [copied]);
 
   return (
     <div className="hangarPage">
@@ -163,6 +255,22 @@ const HangarPage = () => {
                     ? partInfo.note
                     : "Click any labelled point on the model, or pick a part from the list above. Arrow keys rotate, + and − zoom, Esc clears the selection."}
                 </p>
+              </div>
+
+              <div className="hangar__tools">
+                {speechReady && (
+                  <button
+                    type="button"
+                    className={`hangar__tool${speaking ? " is-on" : ""}`}
+                    onClick={listen}
+                    aria-pressed={speaking}
+                  >
+                    {speaking ? "◼ Stop the guide" : "▷ Hear this record"}
+                  </button>
+                )}
+                <button type="button" className="hangar__tool" onClick={copyLink}>
+                  {copied ? "✓ Link copied" : "Copy a link to this view"}
+                </button>
               </div>
 
               <div className="hangar__panelFoot">

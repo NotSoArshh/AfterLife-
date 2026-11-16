@@ -5958,3 +5958,233 @@ h4 {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* Search trigger in the capsule nav --------------------------------------- */
+.nav__search {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 18px;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--paper-2);
+  font-family: var(--font-label);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.24s var(--ease), border-color 0.24s var(--ease);
+}
+
+.nav__search:hover,
+.nav__search:focus-visible {
+  color: var(--paper);
+  border-color: var(--gold-dim);
+}
+
+.nav__searchIcon {
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--gold);
+}
+
+.nav__search kbd {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+
+@media (max-width: 1180px) {
+  .nav__search {
+    margin-right: 12px;
+    padding: 8px 10px;
+  }
+
+  .nav__searchText,
+  .nav__search kbd {
+    display: none;
+  }
+}
+
+/* Finder --------------------------------------------------------------- */
+.finder {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 11vh 20px 24px;
+  background: rgba(3, 4, 7, 0.74);
+  backdrop-filter: blur(7px);
+}
+
+.finder__panel {
+  display: flex;
+  flex-direction: column;
+  width: min(680px, 100%);
+  max-height: 74vh;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #0c0f16, #070910);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.65);
+}
+
+.finder__field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.finder__glass {
+  font-size: 1.1rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.finder__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: none;
+  color: var(--paper);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+}
+
+.finder__input::placeholder {
+  color: var(--faint);
+}
+
+.finder__kbd {
+  padding: 3px 6px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.finder__list {
+  margin: 0;
+  padding: 8px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.finder__row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--paper);
+  text-align: left;
+  cursor: pointer;
+}
+
+.finder__row.is-on {
+  background: rgba(227, 196, 139, 0.13);
+  box-shadow: inset 0 0 0 1px rgba(227, 196, 139, 0.36);
+}
+
+.finder__kind {
+  flex: none;
+  width: 62px;
+  font-family: var(--font-label);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.finder__row.is-on .finder__kind {
+  color: var(--gold);
+}
+
+.finder__title {
+  font-size: 0.95rem;
+}
+
+.finder__sub {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.74rem;
+  text-align: right;
+}
+
+.finder__empty {
+  padding: 30px 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.finder__foot {
+  display: flex;
+  gap: 16px;
+  padding: 11px 18px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.finder__foot span:last-child {
+  margin-left: auto;
+}
+
+.menu__search {
+  width: 100%;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: var(--gold);
+}
+
+/* Hangar panel tools --------------------------------------------------- */
+.hangar__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.hangar__tool {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--paper-2);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: color 0.24s var(--ease), border-color 0.24s var(--ease), background 0.24s var(--ease);
+}
+
+.hangar__tool:hover,
+.hangar__tool:focus-visible,
+.hangar__tool.is-on {
+  border-color: var(--gold);
+  background: rgba(227, 196, 139, 0.12);
+  color: var(--gold);
+}
